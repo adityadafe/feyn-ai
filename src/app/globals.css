@@ -78,5 +78,13 @@
 
 @font-face {
   font-family: "Recoleta";
-  src: url("../../public/Recoleta-RegularDEMO.otf"),
+  src: url("../../public/Recoleta-RegularDEMO.otf");
 }
+
+.checks-container {
+  background-image: url("../../public/checks-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @apply py-24;
+}
+
