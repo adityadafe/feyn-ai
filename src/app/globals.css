@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-zinc-900 
+    @apply bg-zinc-900 selection:bg-gray-50/40
 
   }
 }
