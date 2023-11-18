@@ -1,16 +1,8 @@
 'use client'
 
+import NavMenu from "./nav-menu"
 import { Button } from "./ui/button"
 import { signIn, useSession, signOut } from "next-auth/react"
-
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 export default function Navbar() {
 	const session = useSession()
@@ -25,24 +17,7 @@ export default function Navbar() {
 				</div>
 				<div className="items-center">
 					{session.data?.user ?
-						<DropdownMenu >
-							<DropdownMenuTrigger asChild>
-								<Button> <img
-									src={session.data.user.image as string}
-									alt="User Image"
-									width={50}
-									height={50}
-									className="rounded-3xl mr-3 mt-12"
-								/></Button>
-							</DropdownMenuTrigger>
-							<DropdownMenuContent className="w-56">
-								<DropdownMenuLabel>Hi !! {session.data.user.name}</DropdownMenuLabel>
-								<DropdownMenuSeparator />
-								<DropdownMenuItem>
-									<Button variant="link" onClick={() => signOut()}>Log out </Button>
-								</DropdownMenuItem>
-							</DropdownMenuContent>
-						</DropdownMenu>
+						<NavMenu info={session.data.user} />
 						:
 						<Button
 							variant="ghost"

@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image"
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { MouseEvent } from "react";
 
 export default function HeroImage() {
 	const x = useMotionValue(0);
@@ -20,12 +21,10 @@ export default function HeroImage() {
 		["-17.5deg", "17.5deg"]
 	);
 
-	const handleMouseMove = (e: any) => {
-		const rect = e.target.getBoundingClientRect();
-		const width = rect.width;
-		const height = rect.height;
-		const mouseX = e.clientX - rect.left;
-		const mouseY = e.clientY - rect.top;
+	const handleMouseMove = (e: any): void => {
+		const { width, height, left, top } = e.target.getBoundingClientRect();
+		const mouseX = e.clientX - left;
+		const mouseY = e.clientY - top;
 		const xPct = mouseX / width - 0.5;
 		const yPct = mouseY / height - 0.5;
 		x.set(xPct);

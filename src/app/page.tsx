@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import HeroImage from "@/components/image-hero";
 import Navbar from "@/components/navbar";
 import { getServerSession } from "next-auth";
+import Link from "next/link";
 
 export default async function Home() {
   const session = await getServerSession()
@@ -16,10 +17,9 @@ export default async function Home() {
           <span className="font-black text-white lg:text-6xl text-2xl"> LITERATURE!! </span> <br />
           {
             session
-              ? <DottedButton> Lets Go</DottedButton>
+              ? <Link href="/temp"> <DottedButton> Lets Go</DottedButton> </Link>
               : null
           }
-
         </div>
         <HeroImage />
       </div>
