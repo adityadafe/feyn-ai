@@ -9,6 +9,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 export default function NavMenu({
 	info,
@@ -21,7 +22,7 @@ export default function NavMenu({
 }) {
 
 	return (
-		<DropdownMenu>
+		<DropdownMenu >
 			<DropdownMenuTrigger asChild>
 				<Button>
 					<img
@@ -33,14 +34,33 @@ export default function NavMenu({
 					/>
 				</Button>
 			</DropdownMenuTrigger>
-			<DropdownMenuContent className="w-56">
-				<DropdownMenuLabel>Hi !! {info?.name}</DropdownMenuLabel>
+			<DropdownMenuContent className="lg:w-56 w-36 bg-zinc-900/50 mr-[4vh] mt-[1vh]">
+				<DropdownMenuLabel className="text-white font-recoleta lg:text-xl">Hi {info?.name} !</DropdownMenuLabel>
+
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>
-					<Button variant="link" onClick={() => signOut()}>
-						Log out
-					</Button>
+
+				<Link href="/">
+					<DropdownMenuItem className="text-white font-recoleta ">
+						Home
+					</DropdownMenuItem>
+				</Link>
+
+				<Link href="/dashboard">
+					<DropdownMenuItem className="text-white font-recoleta">
+						Dashboard
+					</DropdownMenuItem>
+				</Link>
+
+				<Link href="/temp">
+					<DropdownMenuItem className="text-white font-recoleta">
+						Explain
+					</DropdownMenuItem>
+				</Link>
+
+				<DropdownMenuItem onClick={() => signOut()} className="text-white">
+					Log out
 				</DropdownMenuItem>
+
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);

@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth"
 import NavMenu from "./nav-menu"
-import LoginButton from "./ui/LoginButton"
+import LoginButton from "./ui/login-button"
 
 export default async function Navbar() {
 	const session: {

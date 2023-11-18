@@ -71,14 +71,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-zinc-900 selection:bg-gray-50/40
+    @apply bg-zinc-900 selection:bg-gray-50/40 scrollbar-thin scrollbar-track-transparent
 
   }
-}
-
-@font-face {
-  font-family: "Recoleta";
-  src: url("../../public/Recoleta-RegularDEMO.otf");
 }
 
 .checks-container {

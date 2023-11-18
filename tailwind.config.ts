@@ -69,16 +69,16 @@ module.exports = {
           to: { height: 0 },
         },
         "spinSlow": {
-          from: { },
+          from: {},
           to: {}
         },
       },
-animation: {
-  "accordion-down": "accordion-down 0.2s ease-out",
-    "accordion-up": "accordion-up 0.2s ease-out",
-      "spinSlow": "spin 3s linear infinte"
-},
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "spinSlow": "spin 3s linear infinte"
+      },
     },
   },
-plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('tailwind-scrollbar')({ nocompatible: true })],
 }
