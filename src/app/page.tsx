@@ -1,9 +1,11 @@
+import DottedButton from "@/components/dotted-button";
 import Footer from "@/components/footer";
+import HeroImage from "@/components/image-hero";
 import Navbar from "@/components/navbar";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { getServerSession } from "next-auth";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession()
   return (
     <main >
       <Navbar />
@@ -12,15 +14,14 @@ export default function Home() {
           <span className="font-black text-white lg:text-6xl text-2xl"> DITCH BORING </span> <br />
           <span className="font-black text-white lg:text-6xl text-2xl"> & LONGGG </span> <br />
           <span className="font-black text-white lg:text-6xl text-2xl"> LITERATURE!! </span> <br />
-          <Button variant="secondary" className="lg:w-40 lg:h-12 font-recoleta lg:text-3xl text-2xl animate-pulse">Lets Go</Button>
+          {
+            session
+              ? <DottedButton> Lets Go</DottedButton>
+              : null
+          }
+
         </div>
-        <Image
-        className="animate-bounce"
-          src="/hero.png"
-          alt="Hero Png"
-          width={400}
-          height={400}
-        />
+        <HeroImage />
       </div>
       <Footer />
     </main>
