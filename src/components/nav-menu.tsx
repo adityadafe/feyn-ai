@@ -1,3 +1,4 @@
+'use client'
 import { signOut } from "next-auth/react";
 import { Button } from "./ui/button";
 import {
@@ -18,6 +19,7 @@ export default function NavMenu({
 		name?: string | null | undefined;
 	};
 }) {
+
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>

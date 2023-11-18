@@ -1,12 +1,16 @@
-'use client'
-
+import { getServerSession } from "next-auth"
 import NavMenu from "./nav-menu"
-import { Button } from "./ui/button"
-import { signIn, useSession, signOut } from "next-auth/react"
+import LoginButton from "./ui/LoginButton"
 
-export default function Navbar() {
-	const session = useSession()
-	console.log(session)
+export default async function Navbar() {
+	const session: {
+		user: {
+			name: string,
+			image: string,
+			email: string
+		}
+	} | null = await getServerSession()
+
 	return (
 		<>
 			<header className="flex items-center justify-between">
@@ -16,15 +20,10 @@ export default function Navbar() {
 					</span>
 				</div>
 				<div className="items-center">
-					{session.data?.user ?
-						<NavMenu info={session.data.user} />
-						:
-						<Button
-							variant="ghost"
-							className="text-white font-recoleta mr-5 text-2xl mt-5 lg:mt-0"
-							onClick={() => signIn('github', { callbackUrl: '/' })}
-						> Login</Button>
-
+					{
+						session
+							? <NavMenu info={session?.user} />
+							: <LoginButton />
 					}
 				</div>
 			</header>

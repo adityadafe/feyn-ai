@@ -1,4 +1,4 @@
-import DottedButton from "@/components/dotted-button";
+import DottedButton from "@/components/ui/dotted-button";
 import Footer from "@/components/footer";
 import HeroImage from "@/components/image-hero";
 import Navbar from "@/components/navbar";
