@@ -7,7 +7,7 @@ export default function LoginButton() {
     <Button
       variant="ghost"
       className="text-white font-recoleta mr-5 text-2xl mt-5 lg:mt-0"
-      onClick={() => signIn('github', { callbackUrl: '/' })}
+      onClick={() => signIn('github')}
     > Login</Button>
 
   )
