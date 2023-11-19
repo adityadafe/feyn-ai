@@ -51,7 +51,7 @@ export default function NavMenu({
 					</DropdownMenuItem>
 				</Link>
 
-				<Link href="/temp">
+				<Link href="/explain">
 					<DropdownMenuItem className="text-white font-recoleta">
 						Explain
 					</DropdownMenuItem>

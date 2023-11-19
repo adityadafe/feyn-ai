@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth"
 import NavMenu from "./nav-menu"
 import LoginButton from "./ui/login-button"
+import Link from "next/link"
 
 export default async function Navbar() {
 	const session: {
@@ -15,9 +16,11 @@ export default async function Navbar() {
 		<>
 			<header className="flex items-center justify-between">
 				<div className="flex flex-row items-center mt-5 ml-5">
-					<span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-300/50  ml-2 text-5xl font-recoleta lg:ml-5">
-						Feyn!
-					</span>
+					<Link href="/">
+						<span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-zinc-300/50  ml-2 text-5xl font-recoleta lg:ml-5">
+							Feyn!
+						</span>
+					</Link>
 				</div>
 				<div className="items-center">
 					{

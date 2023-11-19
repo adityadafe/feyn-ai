@@ -17,7 +17,7 @@ export default async function Home() {
           <span className="font-black text-white lg:text-6xl text-2xl"> LITERATURE!! </span> <br />
           {
             session
-              ? <Link href="/temp"> <DottedButton> Lets Go</DottedButton> </Link>
+              ? <Link href="/explain"> <DottedButton> Lets Go</DottedButton> </Link>
               : null
           }
         </div>
