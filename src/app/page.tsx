@@ -8,7 +8,7 @@ import Link from "next/link";
 export default async function Home() {
   const session = await getServerSession()
   return (
-    <main >
+    <main className="grainy">
       <Navbar />
       <div className="checks-container h-[88vh] w-[100vw] flex items-center justify-evenly flex-col lg:flex-row">
         <div className="flex flex-col ">
