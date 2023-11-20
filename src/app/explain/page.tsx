@@ -1,9 +1,10 @@
 import Navbar from "@/components/navbar"
 import NeedToLogin from "@/components/need-to-login"
 import { getServerSession } from "next-auth"
+import { authOptions } from "../api/auth/[...nextauth]/route"
 
 export default async function ExplainPage() {
-  const session = await getServerSession()
+  const session = await getServerSession(authOptions)
 
   return (
     <>

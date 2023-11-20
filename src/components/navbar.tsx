@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth"
 import NavMenu from "./nav-menu"
 import LoginButton from "./ui/login-button"
 import Link from "next/link"
+import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 
 export default async function Navbar() {
 	const session: {
@@ -10,7 +11,7 @@ export default async function Navbar() {
 			image: string,
 			email: string
 		}
-	} | null = await getServerSession()
+	} | null = await getServerSession(authOptions)
 
 	return (
 		<>

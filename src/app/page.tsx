@@ -4,9 +4,11 @@ import HeroImage from "@/components/image-hero";
 import Navbar from "@/components/navbar";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 export default async function Home() {
-  const session = await getServerSession()
+  const session = await getServerSession(authOptions)
+
   return (
     <main className="grainy">
       <Navbar />
