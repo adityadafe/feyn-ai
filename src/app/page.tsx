@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import HeroComponent from "@/components/hero-component";
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -23,7 +24,7 @@ export default async function Home() {
               : null
           }
         </div>
-        <HeroImage />
+        <HeroComponent />
       </div>
       <Footer />
     </main>
