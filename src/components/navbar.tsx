@@ -13,6 +13,7 @@ export default async function Navbar() {
 		}
 	} | null = await getServerSession(authOptions)
 
+
 	return (
 		<>
 			<header className="flex items-center justify-between">
