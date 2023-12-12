@@ -44,4 +44,28 @@ model User {
   image         String?
   Account       Account[]
   Session       Session[]
+  File          File[]
+  Message       Message[]
+}
+
+model File {
+  id        String    @id @default(cuid()) @map("_id")
+  name      String
+  url       String
+  userId    String
+  user      User?     @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  messages  Message[]
+}
+
+model Message {
+  id            String   @id @default(cuid()) @map("_id")
+  text          String   @db.String()
+  isUserMessage Boolean
+  isMarkdown    Boolean
+  createdAt     DateTime @default(now())
+  userId        String
+  User          User     @relation(fields: [userId], references: [id])
+  File          File?    @relation(fields: [fileId], references: [id])
+  fileId        String?
 }
