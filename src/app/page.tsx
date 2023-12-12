@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <main className="grainy">
       <Navbar />
-      <div className="checks-container h-[88vh] w-[100vw] flex items-center justify-evenly flex-col lg:flex-row">
+      <div className="relative checks-container h-[88vh] w-[100vw] flex items-center justify-evenly flex-col lg:flex-row">
         <div className="flex flex-col ">
           <span className="font-black text-white lg:text-6xl text-2xl"> DITCH BORING </span> <br />
           <span className="font-black text-white lg:text-6xl text-2xl"> & LONGGG </span> <br />

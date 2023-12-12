@@ -3,6 +3,7 @@
 import { Button } from "./ui/button"
 import UploadComponent from "./upload-component"
 import { DialogContent, Dialog, DialogTrigger } from "./ui/dialog"
+import Uploadthing from "./uploadthing-example"
 
 export default function UploadButton() {
 
@@ -15,7 +16,7 @@ export default function UploadButton() {
 						<Button variant="secondary" className="mr-[2vw]">Upload</Button>
 					</DialogTrigger>
 					<DialogContent className="sm:max-w-md">
-						<UploadComponent />
+						<Uploadthing />
 					</DialogContent>
 
 				</Dialog>
