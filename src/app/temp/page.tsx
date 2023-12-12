@@ -1,10 +1,13 @@
-import Uploadthing from "@/components/uploadthing-example";
-
 export default async function TempPage() {
 
-  return (
-    <>
+  const data = await fetch('http://localhost:3000/api/db')
 
-    </>
+  console.log(data)
+  console.log('hi')
+
+  return (
+    <div className="text-white">
+    
+    </div>
   )
 }

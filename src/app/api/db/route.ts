@@ -1,13 +1,17 @@
-import { PrismaClient } from "@prisma/client";
+import { db } from "@/app/db";
+import { NextResponse } from "next/server";
 
-const prisma = new PrismaClient()
+export async function GET(response: Response) {
 
-async function main() {
-	const allUsers = await prisma.user.findMany()
-	console.log(allUsers)
+	try {
+		const allUsers = await db.user.findMany()
+		return NextResponse.json(allUsers)
+	} catch (err) {
+		return NextResponse.json({
+			error: err
+		})
+	}
+
+
 }
 
-main().then(async () => await prisma.$disconnect()).catch(async (e) => {
-	console.log(e)
-	await prisma.$disconnect()
-})
