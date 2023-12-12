@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "./ui/button"
-import UploadComponent from "./upload-component"
 import { DialogContent, Dialog, DialogTrigger } from "./ui/dialog"
 import Uploadthing from "./uploadthing-example"
 
@@ -18,7 +17,6 @@ export default function UploadButton() {
 					<DialogContent className="sm:max-w-md">
 						<Uploadthing />
 					</DialogContent>
-
 				</Dialog>
 			</div >
 		</>

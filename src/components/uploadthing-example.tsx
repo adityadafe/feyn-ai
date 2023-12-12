@@ -1,10 +1,11 @@
 "use client";
 
 import { UploadDropzone } from "@/lib/uploadthing";
-import { toast } from "./ui/use-toast";
-import { ToastAction } from "@radix-ui/react-toast";
+import {  useToast } from "./ui/use-toast";
 
 export default function Uploadthing() {
+
+const { toast } = useToast()
 
 	return (
 		<UploadDropzone
@@ -15,9 +16,6 @@ export default function Uploadthing() {
 				toast({
 					title: "The file is uploaded",
 					description: "Now uploading to Vector DB",
-					action:(
-					<ToastAction altText="close model"> close model</ToastAction>
-					)
 				})
 			}}
 			onUploadError={(error: Error) => {
