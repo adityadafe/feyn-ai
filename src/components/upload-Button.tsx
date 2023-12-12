@@ -1,10 +1,9 @@
 "use client"
 
-import { useState } from "react";
 import { Button } from "./ui/button"
 import { DialogContent, Dialog, DialogTrigger } from "./ui/dialog"
 import Uploadthing from "./uploadthing-example"
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 
 
 export default function UploadButton() {
@@ -20,7 +19,7 @@ export default function UploadButton() {
 						<Button variant="secondary" className="mr-[2vw]">Upload</Button>
 					</DialogTrigger>
 					<DialogContent className="sm:max-w-md">
-						<Uploadthing/>
+						<Uploadthing />
 					</DialogContent>
 				</Dialog>
 			</div >

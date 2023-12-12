@@ -1,7 +1,7 @@
 "use client";
 
 import { UploadDropzone } from "@/lib/uploadthing";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 
 export default function Uploadthing() {
@@ -9,7 +9,6 @@ export default function Uploadthing() {
 
 	return (
 		<>
-			<div><Toaster position="top-right" reverseOrder={false} /></div>
 			<UploadDropzone
 				endpoint="pdfUploader"
 				onClientUploadComplete={(res) => {
