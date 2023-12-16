@@ -1,10 +1,10 @@
+'use client'
+
 import { UploadDropzone } from "@/lib/uploadthing";
 import toast from "react-hot-toast";
 
 
 export default function Uploadthing() {
-
-
 	return (
 		<>
 			<UploadDropzone
