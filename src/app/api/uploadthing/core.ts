@@ -47,17 +47,16 @@ const onUploadComplete = async ({ metadata, file }: {
 		}
 	})
 
-	return { uploadedBy: metadata.userId }
+
+	return { createdFile }
 }
-
-
-
 
 
 export const ourFileRouter = {
 
 	pdfUploader: f({ pdf: { maxFileSize: "4MB" } })
 		.middleware(middleware)
+		// @ts-ignore
 		.onUploadComplete(onUploadComplete),
 } satisfies FileRouter;
 

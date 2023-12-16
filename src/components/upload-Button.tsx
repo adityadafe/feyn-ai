@@ -2,7 +2,7 @@
 
 import { Button } from "./ui/button"
 import { DialogContent, Dialog, DialogTrigger } from "./ui/dialog"
-import Uploadthing from "./uploadthing-example"
+import Uploadthing from "./uploadthing"
 import { Toaster } from "react-hot-toast";
 
 
