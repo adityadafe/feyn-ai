@@ -10,11 +10,17 @@ export default async function ExplainPage() {
   const session = await getServerSession(authOptions)
   const filesFromDb = await db.file.findMany()
 
+  if (!session) {
+    return (
+      <NeedToLogin />
+    )
+  }
+
   return (
     <>
       <Navbar />
-      {session ? <UploadButton /> : <NeedToLogin />}
-      {session ? <DashBoardPdf data={filesFromDb}/> : null}
+      <UploadButton />
+      <DashBoardPdf data={filesFromDb} />
     </>
   )
 }
