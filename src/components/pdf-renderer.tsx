@@ -1,7 +1,7 @@
 'use client'
 
 import { Document, Page, pdfjs } from 'react-pdf'
-import { ChevronDown, ChevronUp, Loader, Loader2, Scale } from 'lucide-react'
+import { ChevronDown, ChevronUp, Loader2 } from 'lucide-react'
 import 'react-pdf/dist/Page/AnnotationLayer.css'
 import 'react-pdf/dist/Page/TextLayer.css'
 import toast from 'react-hot-toast'
@@ -25,7 +25,6 @@ export default function PdfRenderer({ url }: pdfRendererProps) {
 
 
 	const { width, ref } = useResizeDetector()
-	console.log(width)
 	const [numPages, setNumPages] = useState<number>()
 	const [currPage, setCurrPage] = useState<number>(1)
 
@@ -54,7 +53,6 @@ export default function PdfRenderer({ url }: pdfRendererProps) {
 					<Button aria-label='previous page' variant='default'
 						onClick={() => {
 							setCurrPage((prev) => prev - 1 >= 1 ? prev - 1 : prev)
-							setValue('page', currPage+1)
 						}}>
 						<ChevronDown className='h-4 w-4' color='white' />
 					</Button>
@@ -72,7 +70,6 @@ export default function PdfRenderer({ url }: pdfRendererProps) {
 					</p>
 					<Button aria-label='next page' variant='default' onClick={() => {
 						setCurrPage((prev) => prev + 1 <= numPages! ? prev + 1 : prev)
-						setValue('page', currPage)
 					}
 					}>
 						<ChevronUp className='h-4 w-4' color='white' />
@@ -87,7 +84,7 @@ export default function PdfRenderer({ url }: pdfRendererProps) {
 						onLoadSuccess={({ numPages }) => setNumPages(numPages)}
 						onLoadError={() => toast.error('Error Uploading PDF')}
 					>
-						<Page pageNumber={currPage} width={950} />
+						<Page pageNumber={currPage} width={width} />
 					</Document>
 				</div>
 			</div >

@@ -1,6 +1,6 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route"
 import { db } from "@/app/db"
-import ChatWrapper from "@/components/chat-wrapper"
+import ChatWrapper from "@/components/chat/chat-wrapper"
 import Navbar from "@/components/navbar"
 import NeedToLogin from "@/components/need-to-login"
 import PdfDoesNotExist from "@/components/pdf-does-not-exist"
@@ -44,9 +44,9 @@ export default async function DashboardWithFeildId({ params }: Pageprops) {
     <>
       <Navbar />
       <div><Toaster position="top-right" reverseOrder={false} /></div>
-      <div className="flex flex-row h-[90vh] w-[100vw]">
+      <div className="flex lg:flex-row h-[90vh] w-[100vw] flex-col">
         {file ? <PdfRenderer url={file.url} /> : null}
-        <ChatWrapper />
+        <ChatWrapper fileId={file.id} />
       </div>
     </>
   )
