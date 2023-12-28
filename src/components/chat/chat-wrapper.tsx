@@ -1,32 +1,22 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ChatInput from './chatInput'
-import { db } from '@/app/db'
-import { Play } from 'next/font/google'
+import Messages from './messages'
 
 interface ChatWrapperProps {
 	fileId: string
+	userId: string
 }
 
-export default function ChatWrapper({ fileId }: ChatWrapperProps) {
+export default function ChatWrapper({ fileId, userId }: ChatWrapperProps) {
 
-	useEffect(() => {
-		async function getHistory() {
-			await db.message.findMany({
-				where: {
-
-				}
-			})
-		}
-	})
 
 	const [response, setResponse] = useState()
-	const [chatHistory, setChatHistory] = useState()
 
 	return (
 		<>
 			<div className="relative min-h-full bg-zinc-900 flex divide-y divide-zinc-200 flex-col justify-between gap-2 text-white">
-				{response}
+				<Messages fileId={fileId} userId={userId}/>
 				<ChatInput setResponse={setResponse} fileId={fileId} />
 			</div>
 		</>

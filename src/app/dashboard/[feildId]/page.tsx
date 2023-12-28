@@ -44,9 +44,20 @@ export default async function DashboardWithFeildId({ params }: Pageprops) {
     <>
       <Navbar />
       <div><Toaster position="top-right" reverseOrder={false} /></div>
-      <div className="flex lg:flex-row min-h-full w-full flex-col">
-        {file ? <PdfRenderer url={file.url} /> : null}
-        <ChatWrapper fileId={file.id} />
+      <div className="flex-1 justify-between flex lg:flex-row h-[calc(100vh-3.5rem)] flex-col">
+        <div className="mx-auto w-full max-w-8xl grow lg:flex xl:px-2">
+
+          <div className="flex-1 xl:flex">
+            <div className="px-4 py-6 sm:px-6 lg:pl-8 xl:flex-1 xl:pl-6">
+              {file ? <PdfRenderer url={file.url} /> : null}
+            </div>
+          </div>
+
+          <div className="shrink-0 flex-[0.75] border-t border-gray-200 lg:w-96 lg:border-l lg:border-t-0 mt-12">
+            <ChatWrapper fileId={file.id} userId={user?.id!}/>
+          </div>
+
+        </div>
       </div>
     </>
   )

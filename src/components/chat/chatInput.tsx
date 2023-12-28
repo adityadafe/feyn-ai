@@ -3,7 +3,7 @@
 import { Send } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 
 interface ChatInputProps {
 	setResponse: React.SetStateAction<any>
@@ -13,10 +13,12 @@ interface ChatInputProps {
 export default function ChatInput({ setResponse, fileId }: ChatInputProps) {
 
 	const [message, setMessage] = useState<string>('')
+	const [isLoading, setIsLoading] = useState<boolean>(false)
 
 	async function onSubmit(e: React.FormEvent) {
 		e.preventDefault()
 
+		setIsLoading(true)
 		const res = await fetch('/api/message', {
 			method: 'POST',
 			body: JSON.stringify({
@@ -43,12 +45,16 @@ export default function ChatInput({ setResponse, fileId }: ChatInputProps) {
 			}
 			else {
 				let chunkvalue = decoder.decode(value)
+				if (chunkvalue.toString().toLowerCase() === 'undefined') {
+					chunkvalue = ''
+				}
 				//@ts-ignore
 				setResponse((prev) => prev + chunkvalue)
 			}
 		}
 
 		setMessage('')
+		setIsLoading(false)
 	}
 
 	return (
@@ -56,7 +62,7 @@ export default function ChatInput({ setResponse, fileId }: ChatInputProps) {
 			<div className="mx-2 flex flex-row gap-3 md:mx-4 md:last:mb-6 lg:mx-auto lg:max-w-2xl xl:max-w-3xl">
 				<div className="relative flex h-full flex-1 items-stretch md:flex-col">
 					<div className="relative flex flex-col w-full flex-grow p-4">
-						<form onSubmit={onSubmit} className="flex flex-row items-center w-[40vw]">
+						<form onSubmit={onSubmit} className="flex flex-row items-center w-full">
 							<Input className="resize-none pr-12 text-base py-3  text-white" placeholder="Ask questions like what is this pdf about?" onChange={e => setMessage(e.target.value)}
 								value={message}
 								onKeyDown={(e) => {
