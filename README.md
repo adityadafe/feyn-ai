@@ -1,3 +1,9 @@
+## ProtoType:
+
+![image](https://github.com/user-attachments/assets/dc027c91-ffc2-4ca5-adef-e2894888fc08)
+
+![image](https://github.com/user-attachments/assets/76f24206-a2e0-4af2-9bc4-83164153e609)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
